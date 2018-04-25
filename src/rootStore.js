@@ -17,7 +17,7 @@ class RootStore {
             const topStories  = await hn.fetchTopStories(10);
             console.log(`got top stories response`, topStories);
             this.topStories = topStories.map(json => new StoryModel({
-                postingTime: new Date(json.time),
+                postingTime: new Date(json.time * 1000),
                 commentsNum: json.kids ? json.kids.length: 0,
                 score: json.score,
                 url: json.url,
