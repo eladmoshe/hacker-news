@@ -13,6 +13,13 @@ const TopLevel = styled.div`
   background: #f7f7f7;
 `;
 
+const CardList = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-evenly;
+`
+
 const Loading = styled.div`
   font-weight: bold;
   margin: auto;
@@ -24,7 +31,7 @@ class App extends Component {
     return (
       <TopLevel>
         <Header />
-        <div>
+        <CardList>
           {rootStore.topStories.length > 0 ? (
             rootStore.topStories.map(story => (
               <Story  key={story.id} {...story} />
@@ -32,7 +39,7 @@ class App extends Component {
           ) : (
             <Loading>Loading Stories...</Loading>
           )}
-        </div>
+        </CardList>
       </TopLevel>
     );
   }
